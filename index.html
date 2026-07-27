@@ -246,21 +246,28 @@
     }
 
     .cover-photo-left {
-      left: clamp(-105px, -4vw, -25px);
+      left: clamp(-10px, 0vw, 45px);
       justify-content: flex-start;
     }
 
     .cover-photo-right {
-      right: clamp(-105px, -4vw, -25px);
+      right: clamp(-150px, -6vw, -55px);
       justify-content: flex-end;
     }
 
     .cover-photo img {
-      width: 112%;
-      height: 112%;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
       object-position: bottom center;
+      transform: scale(1.32);
+      transform-origin: bottom center;
       filter: drop-shadow(0 18px 22px rgba(55,38,28,.12));
+    }
+
+    /* 新娘單獨放大 */
+    .cover-photo-left img {
+      transform: scale(1.42);
     }
 
     /* 沒放圖片時完全隱藏，不會顯示破圖 */
@@ -896,12 +903,18 @@
       }
 
       .cover-photo img {
-        width: 116%;
-        height: 116%;
+        width: 100%;
+        height: 100%;
+        transform: scale(1.22);
+        transform-origin: bottom center;
       }
 
-      .cover-photo-left { left: -20vw; }
-      .cover-photo-right { right: -20vw; }
+      .cover-photo-left img {
+        transform: scale(1.30);
+      }
+
+      .cover-photo-left { left: -13vw; }
+      .cover-photo-right { right: -23vw; }
 
       #homePage::before { width: 150px; height: 150px; opacity: .07; }
       #homePage::after { width: 80px; height: 80px; right: 18px; top: 18px; }
