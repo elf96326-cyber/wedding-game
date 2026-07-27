@@ -7,79 +7,40 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800;900&family=Noto+Serif+TC:wght@500;600;700;900&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800;900&family=Noto+Serif+TC:wght@500;600;700;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --red: #c83b46;
       --red-dark: #982d39;
-      --red-light: #ef8b86;
-
       --orange: #e77a42;
       --yellow: #eebd59;
-
       --green: #55785f;
-      --green-light: #91ac8c;
-
       --cream: #fff8e9;
-      --cream-dark: #f4e8cc;
-      --paper: #fffdf5;
-
       --ink: #302923;
       --ink-light: #6c6056;
-
       --gold: #c79845;
-      --white: #ffffff;
-
-      --shadow:
-        0 18px 50px rgba(92, 52, 36, 0.15);
+      --shadow: 0 18px 50px rgba(92, 52, 36, 0.15);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      min-height: 100%;
-    }
-
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
     body {
       font-family: "Noto Sans TC", sans-serif;
       color: var(--ink);
-
       background:
-        radial-gradient(
-          circle at 12% 15%,
-          rgba(238, 189, 89, 0.22),
-          transparent 25%
-        ),
-        radial-gradient(
-          circle at 85% 85%,
-          rgba(200, 59, 70, 0.12),
-          transparent 30%
-        ),
+        radial-gradient(circle at 12% 15%, rgba(238, 189, 89, .22), transparent 25%),
+        radial-gradient(circle at 85% 85%, rgba(200, 59, 70, .12), transparent 30%),
         var(--cream);
-
       overflow-x: hidden;
     }
 
-    button {
-      font: inherit;
-    }
+    button { font: inherit; }
+    .hidden { display: none !important; }
+    .page { position: relative; z-index: 1; min-height: 100vh; width: 100%; }
+    .serif { font-family: "Noto Serif TC", serif; }
 
-    .hidden {
-      display: none !important;
-    }
-
-    /* =========================
-       背景裝飾
-    ========================= */
-
+    /* 背景裝飾 */
     .bg-deco {
       position: fixed;
       inset: 0;
@@ -87,1003 +48,446 @@
       overflow: hidden;
       z-index: 0;
     }
-
     .circle {
       position: absolute;
       border-radius: 50%;
-      border: 2px solid rgba(200, 59, 70, 0.12);
+      border: 2px solid rgba(200, 59, 70, .12);
     }
-
-    .circle.one {
-      width: 330px;
-      height: 330px;
-      left: -170px;
-      top: 10%;
-    }
-
+    .circle.one { width: 330px; height: 330px; left: -170px; top: 10%; }
     .circle.two {
       width: 240px;
       height: 240px;
       right: -100px;
       bottom: 5%;
-      border-color: rgba(85, 120, 95, 0.15);
+      border-color: rgba(85, 120, 95, .15);
     }
-
     .flower {
       position: absolute;
       font-family: "Noto Serif TC", serif;
       font-size: 100px;
-      color: rgba(200, 59, 70, 0.055);
-      transform: rotate(-10deg);
+      color: rgba(200, 59, 70, .055);
       user-select: none;
     }
-
-    .flower.f1 {
-      top: 40px;
-      right: 5%;
-    }
-
+    .flower.f1 { top: 40px; right: 5%; transform: rotate(-10deg); }
     .flower.f2 {
       bottom: 10px;
       left: 5%;
-      color: rgba(85, 120, 95, 0.07);
+      color: rgba(85, 120, 95, .07);
       transform: rotate(16deg);
     }
 
-    /* =========================
-       共用
-    ========================= */
-
-    .page {
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      width: 100%;
-    }
-
-    .serif {
-      font-family: "Noto Serif TC", serif;
-    }
-
-    .small-en {
-      letter-spacing: 0.18em;
-      font-weight: 700;
-      font-size: 12px;
-      color: var(--red);
-    }
-
-    /* =========================
-       首頁
-    ========================= */
-
+    /* 首頁 */
     #homePage {
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 36px 20px;
     }
-
     .home-card {
       width: min(960px, 100%);
       min-height: 620px;
-
-      background:
-        linear-gradient(
-          rgba(255, 253, 245, 0.93),
-          rgba(255, 253, 245, 0.93)
-        );
-
-      border: 1px solid rgba(151, 82, 57, 0.15);
-      border-radius: 36px;
-
-      box-shadow: var(--shadow);
-
-      position: relative;
-      overflow: hidden;
-
+      padding: 70px 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-
       text-align: center;
-
-      padding: 70px 30px;
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 253, 245, .93);
+      border: 1px solid rgba(151, 82, 57, .15);
+      border-radius: 36px;
+      box-shadow: var(--shadow);
     }
-
-    .home-card::before {
-      content: "";
-      position: absolute;
-      width: 430px;
-      height: 430px;
-      border-radius: 50%;
-      background: var(--red);
-      opacity: 0.045;
-      top: -250px;
-      right: -100px;
-    }
-
+    .home-card::before,
     .home-card::after {
       content: "";
       position: absolute;
+      border-radius: 50%;
+    }
+    .home-card::before {
+      width: 430px;
+      height: 430px;
+      top: -250px;
+      right: -100px;
+      background: var(--red);
+      opacity: .045;
+    }
+    .home-card::after {
       width: 280px;
       height: 280px;
-      border-radius: 50%;
-      background: var(--green);
-      opacity: 0.05;
       bottom: -170px;
       left: -80px;
+      background: var(--green);
+      opacity: .05;
     }
-
     .seal {
       width: 82px;
       height: 82px;
-
-      background: var(--red);
-      color: white;
-
-      border-radius: 18px 18px 28px 18px;
-
+      margin-bottom: 28px;
       display: grid;
       place-items: center;
-
+      background: var(--red);
+      color: white;
+      border-radius: 18px 18px 28px 18px;
       font-family: "Noto Serif TC", serif;
-      font-weight: 900;
       font-size: 42px;
-
-      box-shadow:
-        7px 8px 0 rgba(151, 45, 57, 0.12);
-
+      font-weight: 900;
+      box-shadow: 7px 8px 0 rgba(151, 45, 57, .12);
       transform: rotate(-4deg);
-
-      margin-bottom: 28px;
     }
-
+    .small-en {
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .18em;
+    }
     .home-title {
       margin: 8px 0 6px;
-
       font-size: clamp(38px, 7vw, 72px);
       line-height: 1.15;
-
       font-weight: 900;
-      letter-spacing: 0.08em;
+      letter-spacing: .08em;
     }
-
-    .home-title .accent {
-      color: var(--red);
-    }
-
+    .home-title .accent { color: var(--red); }
     .home-subtitle {
-      color: var(--ink-light);
-      line-height: 1.9;
-
-      font-size: 17px;
-
       max-width: 580px;
-
       margin: 20px auto 36px;
+      color: var(--ink-light);
+      font-size: 17px;
+      line-height: 1.9;
     }
-
     .couple-row {
       display: flex;
       align-items: center;
       justify-content: center;
-
       gap: 14px;
-
       margin-bottom: 38px;
     }
-
     .couple-tag {
       padding: 9px 16px;
-      border-radius: 100px;
-
-      font-weight: 700;
+      border-radius: 999px;
       font-size: 14px;
+      font-weight: 700;
     }
-
-    .couple-tag.groom {
-      background: rgba(85, 120, 95, 0.12);
-      color: var(--green);
-    }
-
-    .couple-tag.bride {
-      background: rgba(200, 59, 70, 0.11);
-      color: var(--red);
-    }
-
-    .heart {
-      color: var(--orange);
-      font-size: 20px;
-    }
-
+    .couple-tag.bride { background: rgba(200, 59, 70, .11); color: var(--red); }
+    .couple-tag.groom { background: rgba(85, 120, 95, .12); color: var(--green); }
+    .heart { color: var(--orange); font-size: 20px; }
     .start-btn {
+      min-width: 250px;
+      padding: 18px 32px;
       border: 0;
-      cursor: pointer;
-
+      border-radius: 18px;
       background: var(--red);
       color: white;
-
-      min-width: 250px;
-
-      padding: 18px 32px;
-
-      border-radius: 18px;
-
-      font-weight: 800;
       font-size: 17px;
-
-      box-shadow:
-        0 12px 25px rgba(200, 59, 70, 0.23);
-
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.2s ease;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 12px 25px rgba(200, 59, 70, .23);
+      transition: .2s ease;
     }
-
     .start-btn:hover {
       transform: translateY(-3px);
-
-      box-shadow:
-        0 17px 32px rgba(200, 59, 70, 0.28);
-
       background: var(--red-dark);
+      box-shadow: 0 17px 32px rgba(200, 59, 70, .28);
     }
+    .start-btn span { margin-left: 6px; }
 
-    .start-btn span {
-      margin-left: 6px;
-    }
-
-    /* =========================
-       遊戲頁
-    ========================= */
-
-    #gamePage {
-      padding: 24px;
-    }
-
+    /* 遊戲頁 */
+    #gamePage { padding: 24px; }
     .game-shell {
       width: min(1180px, 100%);
       min-height: calc(100vh - 48px);
-
       margin: auto;
-
       display: flex;
       flex-direction: column;
     }
-
-    /* =========================
-       頂部控制列
-    ========================= */
-
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       gap: 18px;
-
       margin-bottom: 24px;
     }
-
     .home-mini-btn {
-      border: 0;
-
-      background: rgba(255, 255, 255, 0.72);
-      color: var(--ink);
-
       width: 46px;
       height: 46px;
-
+      border: 0;
       border-radius: 15px;
-
+      background: rgba(255, 255, 255, .72);
+      color: var(--ink);
       cursor: pointer;
-
-      box-shadow:
-        0 6px 20px rgba(70, 49, 36, 0.08);
-
-      transition: 0.2s ease;
+      box-shadow: 0 6px 20px rgba(70, 49, 36, .08);
+      transition: .2s ease;
     }
-
-    .home-mini-btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .progress-wrap {
-      flex: 1;
-      max-width: 620px;
-    }
-
+    .home-mini-btn:hover { transform: translateY(-2px); }
+    .progress-wrap { flex: 1; max-width: 620px; }
     .progress-info {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-
       margin-bottom: 8px;
-
+      color: var(--ink-light);
       font-size: 12px;
       font-weight: 700;
-
-      color: var(--ink-light);
     }
-
     .progress-bar {
       width: 100%;
       height: 9px;
-
-      background: rgba(93, 75, 59, 0.1);
-
-      border-radius: 100px;
-
       overflow: hidden;
+      background: rgba(93, 75, 59, .1);
+      border-radius: 999px;
     }
-
     .progress-fill {
+      width: 0;
       height: 100%;
-      width: 0%;
-
-      background:
-        linear-gradient(
-          90deg,
-          var(--red),
-          var(--orange),
-          var(--yellow)
-        );
-
+      background: linear-gradient(90deg, var(--red), var(--orange), var(--yellow));
       border-radius: inherit;
-
-      transition: width 0.45s ease;
+      transition: width .45s ease;
     }
-
     .question-counter {
       min-width: 88px;
-
       text-align: right;
-
-      font-family: "Noto Serif TC", serif;
-
       color: var(--red);
-
+      font-family: "Noto Serif TC", serif;
       font-weight: 800;
     }
 
-    /* =========================
-       題目卡
-    ========================= */
-
+    /* 題目卡 */
     .question-card {
       flex: 1;
-
-      background: rgba(255, 253, 246, 0.92);
-
-      border:
-        1px solid rgba(103, 72, 47, 0.12);
-
-      border-radius: 32px;
-
-      box-shadow: var(--shadow);
-
       padding: 45px 40px 34px;
-
       display: flex;
       flex-direction: column;
       justify-content: center;
-
       position: relative;
-
       overflow: hidden;
+      background: rgba(255, 253, 246, .92);
+      border: 1px solid rgba(103, 72, 47, .12);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
     }
-
     .question-card::before {
       content: "囍";
-
       position: absolute;
-
       top: -25px;
       right: 15px;
-
+      color: rgba(200, 59, 70, .035);
       font-family: "Noto Serif TC", serif;
-
       font-size: 200px;
       font-weight: 900;
-
-      color: rgba(200, 59, 70, 0.035);
     }
-
-    .q-label {
-      text-align: center;
-
-      margin-bottom: 22px;
-    }
-
+    .q-label { margin-bottom: 22px; text-align: center; }
     .q-label span {
       display: inline-flex;
       align-items: center;
-
       gap: 7px;
-
-      background:
-        rgba(200, 59, 70, 0.09);
-
-      color: var(--red);
-
       padding: 8px 15px;
-
+      background: rgba(200, 59, 70, .09);
+      color: var(--red);
       border-radius: 999px;
-
       font-size: 12px;
       font-weight: 800;
-
-      letter-spacing: 0.12em;
+      letter-spacing: .12em;
     }
-
     .question {
       max-width: 850px;
-
       margin: 0 auto;
-
-      font-family: "Noto Serif TC", serif;
-
-      font-weight: 800;
-
       text-align: center;
-
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(26px, 5vw, 46px);
+      font-weight: 800;
       line-height: 1.55;
-
-      font-size:
-        clamp(26px, 5vw, 46px);
     }
 
-    /* =========================
-       新郎 VS 新娘
-    ========================= */
-
+    /* 新娘左、新郎右 */
     .choices {
-      margin: 42px auto 0;
-
       width: min(940px, 100%);
-
+      margin: 42px auto 0;
       display: grid;
-
-      grid-template-columns:
-        1fr auto 1fr;
-
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-
       gap: 22px;
     }
-
     .choice {
       min-height: 205px;
-
-      border-radius: 30px;
-
-      border: 2px solid transparent;
-
-      padding: 18px 22px;
-
+      padding: 10px 22px;
       display: flex;
       align-items: center;
-
       position: relative;
-
-      transition:
-        transform 0.35s ease,
-        opacity 0.35s ease,
-        box-shadow 0.35s ease,
-        border 0.35s ease;
+      border: 2px solid transparent;
+      border-radius: 30px;
+      transition: transform .35s ease, opacity .35s ease, box-shadow .35s ease, border .35s ease;
     }
-
-    .choice-groom {
-      justify-content: flex-start;
-
-      background:
-        linear-gradient(
-          120deg,
-          rgba(85, 120, 95, 0.18),
-          rgba(255, 255, 255, 0.78)
-        );
-    }
-
     .choice-bride {
+      justify-content: flex-start;
+      background: linear-gradient(120deg, rgba(200, 59, 70, .16), rgba(255, 255, 255, .78));
+    }
+    .choice-groom {
       justify-content: flex-end;
-
-      background:
-        linear-gradient(
-          240deg,
-          rgba(200, 59, 70, 0.16),
-          rgba(255, 255, 255, 0.78)
-        );
+      background: linear-gradient(240deg, rgba(85, 120, 95, .18), rgba(255, 255, 255, .78));
     }
-
-    /* =========================
-       去背人物照
-    ========================= */
-
     .person-photo {
-      width: 165px;
-      height: 195px;
-
-      object-fit: contain;
-
-      object-position:
-        bottom center;
-
+      width: 180px;
+      height: 210px;
       flex-shrink: 0;
-
-      filter:
-        drop-shadow(
-          0 13px 12px
-          rgba(55, 38, 28, 0.16)
-        );
-
-      transition:
-        transform 0.35s ease,
-        filter 0.35s ease;
+      align-self: flex-end;
+      object-fit: contain;
+      object-position: bottom center;
+      filter: drop-shadow(0 13px 12px rgba(55, 38, 28, .16));
+      transition: transform .35s ease, filter .35s ease;
     }
-
-    .groom-photo {
-      margin-left: -15px;
-      margin-right: 12px;
-    }
-
-    .bride-photo {
-      margin-left: 12px;
-      margin-right: -15px;
-    }
-
-    /* =========================
-       人物名稱
-    ========================= */
-
+    .bride-photo { margin-left: -18px; margin-right: 14px; }
+    .groom-photo { margin-left: 14px; margin-right: -18px; }
     .person-info {
       display: flex;
       flex-direction: column;
       justify-content: center;
-
       position: relative;
       z-index: 2;
     }
-
-    .groom-info {
-      text-align: left;
-    }
-
-    .bride-info {
-      text-align: right;
-    }
-
+    .bride-info { text-align: left; }
+    .groom-info { text-align: right; }
     .choice-title {
-      font-family:
-        "Noto Serif TC",
-        serif;
-
+      font-family: "Noto Serif TC", serif;
       font-size: 34px;
-
       font-weight: 900;
-
       line-height: 1.2;
     }
-
     .choice-name {
       margin-top: 7px;
-
-      font-size: 12px;
-
-      font-weight: 700;
-
-      letter-spacing: 0.18em;
-
       color: var(--ink-light);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .18em;
     }
-
     .vs {
       width: 56px;
       height: 56px;
-
       display: grid;
       place-items: center;
-
-      border-radius: 50%;
-
-      background: var(--ink);
-
-      color: white;
-
-      font-family:
-        "Noto Serif TC",
-        serif;
-
-      font-weight: 800;
-
-      font-size: 13px;
-
-      box-shadow:
-        0 8px 16px
-        rgba(48, 41, 35, 0.14);
-
       position: relative;
-
       z-index: 3;
+      background: var(--ink);
+      color: white;
+      border-radius: 50%;
+      font-family: "Noto Serif TC", serif;
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 0 8px 16px rgba(48, 41, 35, .14);
     }
 
-    /* =========================
-       揭曉答案
-    ========================= */
-
+    /* 揭曉答案 */
     .choice.answer {
-      transform:
-        translateY(-8px)
-        scale(1.035);
-
-      border-color:
-        var(--gold);
-
-      box-shadow:
-        0 18px 30px
-        rgba(128, 87, 44, 0.16);
+      transform: translateY(-8px) scale(1.035);
+      border-color: var(--gold);
+      box-shadow: 0 18px 30px rgba(128, 87, 44, .16);
     }
-
     .choice.answer .person-photo {
-      transform:
-        scale(1.09)
-        translateY(-4px);
-
-      filter:
-        drop-shadow(
-          0 18px 16px
-          rgba(55, 38, 28, 0.22)
-        );
+      transform: scale(1.09) translateY(-4px);
+      filter: drop-shadow(0 18px 16px rgba(55, 38, 28, .22));
     }
-
-    .choice.wrong {
-      opacity: 0.3;
-
-      transform:
-        scale(0.96);
-    }
-
+    .choice.wrong { opacity: .3; transform: scale(.96); }
     .choice.answer::after {
       content: "答案";
-
       position: absolute;
-
       top: 14px;
-      right: 14px;
-
-      background:
-        var(--red);
-
-      color: white;
-
-      border-radius: 999px;
-
       padding: 5px 11px;
-
+      background: var(--red);
+      color: white;
+      border-radius: 999px;
       font-size: 11px;
-
       font-weight: 800;
     }
-
-    .choice-groom.answer::after {
-      right: 14px;
-    }
-
-    .choice-bride.answer::after {
-      right: auto;
-      left: 14px;
-    }
-
-    /* =========================
-       答案文字
-    ========================= */
+    .choice-bride.answer::after { right: 14px; }
+    .choice-groom.answer::after { left: 14px; }
 
     .answer-message {
       margin: 32px auto 0;
-
       text-align: center;
-
-      animation:
-        answerIn
-        0.55s
-        cubic-bezier(.2,.8,.2,1);
+      animation: answerIn .55s cubic-bezier(.2, .8, .2, 1);
     }
-
     @keyframes answerIn {
-
-      from {
-        opacity: 0;
-
-        transform:
-          translateY(15px)
-          scale(0.97);
-      }
-
-      to {
-        opacity: 1;
-
-        transform:
-          translateY(0)
-          scale(1);
-      }
-
+      from { opacity: 0; transform: translateY(15px) scale(.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
-
     .answer-title {
-      font-size: 13px;
-
-      color: var(--red);
-
-      letter-spacing: 0.18em;
-
-      font-weight: 800;
-
       margin-bottom: 7px;
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .18em;
     }
-
     .answer-result {
-      font-family:
-        "Noto Serif TC",
-        serif;
-
-      font-size:
-        clamp(26px, 5vw, 38px);
-
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(26px, 5vw, 38px);
       font-weight: 900;
     }
+    .answer-note { margin-top: 8px; color: var(--ink-light); font-size: 14px; }
 
-    .answer-note {
-      color: var(--ink-light);
-
-      font-size: 14px;
-
-      margin-top: 8px;
-    }
-
-    /* =========================
-       下方控制
-    ========================= */
-
+    /* 控制按鈕 */
     .controls {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-
       gap: 12px;
-
       margin-top: 28px;
     }
-
     .control-btn {
-      border: 0;
-
-      border-radius: 16px;
-
       padding: 14px 22px;
-
-      cursor: pointer;
-
-      font-weight: 800;
-
+      border: 0;
+      border-radius: 16px;
       font-size: 14px;
-
-      transition:
-        transform 0.2s ease,
-        opacity 0.2s ease,
-        box-shadow 0.2s ease;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s ease, opacity .2s ease, box-shadow .2s ease;
     }
-
-    .control-btn:hover:not(:disabled) {
-      transform:
-        translateY(-2px);
-    }
-
-    .control-btn:disabled {
-      opacity: 0.25;
-
-      cursor: default;
-    }
-
-    .btn-secondary {
-      background:
-        rgba(48, 41, 35, 0.08);
-
-      color: var(--ink);
-    }
-
+    .control-btn:hover:not(:disabled) { transform: translateY(-2px); }
+    .control-btn:disabled { opacity: .25; cursor: default; }
+    .btn-secondary { background: rgba(48, 41, 35, .08); color: var(--ink); }
     .btn-reveal {
-      background:
-        var(--red);
-
-      color: white;
-
       min-width: 190px;
-
-      box-shadow:
-        0 10px 20px
-        rgba(200, 59, 70, 0.2);
-    }
-
-    .btn-next {
-      background:
-        var(--green);
-
+      background: var(--red);
       color: white;
+      box-shadow: 0 10px 20px rgba(200, 59, 70, .2);
     }
-
-    /* =========================
-       手機版
-    ========================= */
+    .btn-next { background: var(--green); color: white; }
 
     @media (max-width: 700px) {
-
-      #homePage {
-        padding: 18px 14px;
-      }
-
-      .home-card {
-        min-height:
-          calc(100vh - 36px);
-
-        border-radius: 26px;
-
-        padding:
-          50px 20px;
-      }
-
-      #gamePage {
-        padding: 14px;
-      }
-
-      .game-shell {
-        min-height:
-          calc(100vh - 28px);
-      }
-
-      .topbar {
-        margin-bottom: 14px;
-      }
-
-      .question-counter {
-        min-width: auto;
-
-        font-size: 13px;
-      }
-
-      .progress-info {
-        display: none;
-      }
-
-      .question-card {
-        padding:
-          30px 14px 22px;
-
-        border-radius: 26px;
-      }
-
-      .q-label {
-        margin-bottom: 16px;
-      }
-
-      .question {
-        font-size:
-          clamp(24px, 8vw, 34px);
-      }
-
-      .choices {
-        gap: 7px;
-
-        margin-top: 28px;
-
-        grid-template-columns:
-          1fr 38px 1fr;
-      }
-
-      .choice {
-        min-height: 160px;
-
-        padding: 10px 6px;
-
-        gap: 3px;
-
-        border-radius: 21px;
-      }
-
-      .person-photo {
-        width: 88px;
-        height: 135px;
-      }
-
-      .groom-photo {
-        margin-left: -12px;
-        margin-right: 0;
-      }
-
-      .bride-photo {
-        margin-left: 0;
-        margin-right: -12px;
-      }
-
-      .choice-title {
-        font-size: 21px;
-      }
-
-      .choice-name {
-        margin-top: 3px;
-
-        font-size: 8px;
-
-        letter-spacing: 0.08em;
-      }
-
-      .vs {
-        width: 38px;
-        height: 38px;
-
-        font-size: 10px;
-      }
-
-      .answer-message {
-        margin-top: 24px;
-      }
-
-      .controls {
-        gap: 8px;
-
-        margin-top: 22px;
-      }
-
-      .control-btn {
-        flex: 1;
-
-        min-width: 100px;
-
-        padding:
-          13px 8px;
-      }
-
-      .btn-reveal {
-        min-width: 140px;
-      }
-
+      #homePage { padding: 18px 14px; }
+      .home-card { min-height: calc(100vh - 36px); padding: 50px 20px; border-radius: 26px; }
+      #gamePage { padding: 14px; }
+      .game-shell { min-height: calc(100vh - 28px); }
+      .topbar { margin-bottom: 14px; }
+      .progress-info { display: none; }
+      .question-counter { min-width: auto; font-size: 13px; }
+      .question-card { padding: 30px 14px 22px; border-radius: 26px; }
+      .q-label { margin-bottom: 16px; }
+      .question { font-size: clamp(24px, 8vw, 34px); }
+      .choices { grid-template-columns: 1fr 38px 1fr; gap: 7px; margin-top: 28px; }
+      .choice { min-height: 160px; padding: 8px 5px; gap: 2px; border-radius: 21px; }
+      .person-photo { width: 92px; height: 145px; }
+      .bride-photo { margin-left: -13px; margin-right: 0; }
+      .groom-photo { margin-left: 0; margin-right: -13px; }
+      .choice-title { font-size: 21px; }
+      .choice-name { margin-top: 3px; font-size: 8px; letter-spacing: .08em; }
+      .vs { width: 38px; height: 38px; font-size: 10px; }
+      .answer-message { margin-top: 24px; }
+      .controls { gap: 8px; margin-top: 22px; }
+      .control-btn { flex: 1; min-width: 100px; padding: 13px 8px; }
+      .btn-reveal { min-width: 140px; }
     }
-
-    /* 超小螢幕 */
 
     @media (max-width: 430px) {
-
-      .choice {
-        min-height: 145px;
-      }
-
-      .person-photo {
-        width: 76px;
-        height: 118px;
-      }
-
-      .choice-title {
-        font-size: 19px;
-      }
-
-      .choice-name {
-        display: none;
-      }
-
-      .question-card {
-        padding-left: 10px;
-        padding-right: 10px;
-      }
-
+      .choice { min-height: 145px; }
+      .person-photo { width: 76px; height: 120px; }
+      .choice-title { font-size: 19px; }
+      .choice-name { display: none; }
+      .question-card { padding-left: 10px; padding-right: 10px; }
     }
-
   </style>
 </head>
-
 <body>
-
-  <!-- 背景 -->
   <div class="bg-deco">
     <div class="circle one"></div>
     <div class="circle two"></div>
@@ -1091,898 +495,187 @@
     <div class="flower f2">囍</div>
   </div>
 
-
-  <!-- =========================
-       首頁
-  ========================== -->
-
-  <main
-    id="homePage"
-    class="page"
-  >
-
+  <main id="homePage" class="page">
     <section class="home-card">
-
-      <div class="seal">
-        囍
-      </div>
-
-      <div class="small-en">
-        WEDDING QUICK QUIZ
-      </div>
-
-      <h1 class="home-title serif">
-        婚禮<span class="accent">快問快答</span>
-      </h1>
-
-      <p class="home-subtitle">
-        關於他們的日常大小事，<br>
-        到底誰才是真正的那一位？
-      </p>
+      <div class="seal">囍</div>
+      <div class="small-en">WEDDING QUICK QUIZ</div>
+      <h1 class="home-title serif">婚禮<span class="accent">快問快答</span></h1>
+      <p class="home-subtitle">關於他們的日常大小事，<br>到底誰才是真正的那一位？</p>
 
       <div class="couple-row">
-
-        <span class="couple-tag groom">
-          新郎
-        </span>
-
-        <span class="heart">
-          ♥
-        </span>
-
-        <span class="couple-tag bride">
-          新娘
-        </span>
-
+        <span class="couple-tag bride">新娘</span>
+        <span class="heart">♥</span>
+        <span class="couple-tag groom">新郎</span>
       </div>
 
-      <button
-        class="start-btn"
-        onclick="startGame()"
-      >
-        開始遊戲
-        <span>→</span>
-      </button>
-
+      <button class="start-btn" onclick="startGame()">開始遊戲 <span>→</span></button>
     </section>
-
   </main>
 
-
-  <!-- =========================
-       遊戲頁
-  ========================== -->
-
-  <main
-    id="gamePage"
-    class="page hidden"
-  >
-
+  <main id="gamePage" class="page hidden">
     <div class="game-shell">
-
-      <!-- 頂部 -->
-
       <div class="topbar">
-
-        <button
-          class="home-mini-btn"
-          onclick="goHome()"
-          title="回首頁"
-        >
-          ←
-        </button>
-
+        <button class="home-mini-btn" onclick="goHome()" title="回首頁">←</button>
 
         <div class="progress-wrap">
-
           <div class="progress-info">
-
-            <span>
-              默契挑戰進行中
-            </span>
-
-            <span id="progressText">
-              1 / 10
-            </span>
-
+            <span>默契挑戰進行中</span>
+            <span id="progressText">1 / 10</span>
           </div>
-
-
-          <div class="progress-bar">
-
-            <div
-              id="progressFill"
-              class="progress-fill"
-            ></div>
-
-          </div>
-
+          <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
         </div>
 
-
-        <div
-          id="questionCounter"
-          class="question-counter"
-        >
-          Q01
-        </div>
-
+        <div id="questionCounter" class="question-counter">Q01</div>
       </div>
 
-
-      <!-- 題目卡 -->
-
       <section class="question-card">
-
-        <div class="q-label">
-
-          <span>
-            ✦ QUESTION ✦
-          </span>
-
-        </div>
-
-
-        <h2
-          id="questionText"
-          class="question"
-        >
-          平常家裡都是誰在做家事？
-        </h2>
-
-
-        <!-- =========================
-             人物選項
-        ========================== -->
+        <div class="q-label"><span>✦ QUESTION ✦</span></div>
+        <h2 id="questionText" class="question">平常家裡都是誰在做家事？</h2>
 
         <div class="choices">
-
-
-          <!-- 新郎 -->
-
-          <div
-            id="groomChoice"
-            class="choice choice-groom"
-          >
-
-            <img
-              src="images/groom.png"
-              alt="新郎"
-              class="person-photo groom-photo"
-            >
-
-            <div
-              class="person-info groom-info"
-            >
-
-              <div class="choice-title">
-                新郎
-              </div>
-
-              <div class="choice-name">
-                GROOM
-              </div>
-
+          <!-- 新娘：左邊 -->
+          <div id="brideChoice" class="choice choice-bride">
+            <img src="./bride.png" alt="新娘" class="person-photo bride-photo">
+            <div class="person-info bride-info">
+              <div class="choice-title">新娘</div>
+              <div class="choice-name">BRIDE</div>
             </div>
-
           </div>
 
+          <div class="vs">VS</div>
 
-          <!-- VS -->
-
-          <div class="vs">
-            VS
-          </div>
-
-
-          <!-- 新娘 -->
-
-          <div
-            id="brideChoice"
-            class="choice choice-bride"
-          >
-
-            <div
-              class="person-info bride-info"
-            >
-
-              <div class="choice-title">
-                新娘
-              </div>
-
-              <div class="choice-name">
-                BRIDE
-              </div>
-
+          <!-- 新郎：右邊 -->
+          <div id="groomChoice" class="choice choice-groom">
+            <div class="person-info groom-info">
+              <div class="choice-title">新郎</div>
+              <div class="choice-name">GROOM</div>
             </div>
-
-
-            <img
-              src="images/bride.png"
-              alt="新娘"
-              class="person-photo bride-photo"
-            >
-
+            <img src="./groom.png" alt="新郎" class="person-photo groom-photo">
           </div>
-
         </div>
 
-
-        <!-- =========================
-             答案文字
-        ========================== -->
-
-        <div
-          id="answerMessage"
-          class="answer-message hidden"
-        >
-
-          <div class="answer-title">
-            THE ANSWER IS
-          </div>
-
-          <div
-            id="answerResult"
-            class="answer-result"
-          ></div>
-
-          <div
-            id="answerNote"
-            class="answer-note"
-          ></div>
-
+        <div id="answerMessage" class="answer-message hidden">
+          <div class="answer-title">THE ANSWER IS</div>
+          <div id="answerResult" class="answer-result"></div>
+          <div id="answerNote" class="answer-note"></div>
         </div>
-
-
-        <!-- =========================
-             控制按鈕
-        ========================== -->
 
         <div class="controls">
-
-          <button
-            id="prevBtn"
-            class="control-btn btn-secondary"
-            onclick="prevQuestion()"
-          >
-            ← 上一題
-          </button>
-
-          <button
-            id="revealBtn"
-            class="control-btn btn-reveal"
-            onclick="revealAnswer()"
-          >
-            揭曉答案
-          </button>
-
-          <button
-            id="nextBtn"
-            class="control-btn btn-next"
-            onclick="nextQuestion()"
-          >
-            下一題 →
-          </button>
-
+          <button id="prevBtn" class="control-btn btn-secondary" onclick="prevQuestion()">← 上一題</button>
+          <button id="revealBtn" class="control-btn btn-reveal" onclick="revealAnswer()">揭曉答案</button>
+          <button id="nextBtn" class="control-btn btn-next" onclick="nextQuestion()">下一題 →</button>
         </div>
-
       </section>
-
     </div>
-
   </main>
 
-
   <script>
-
-    /* =========================
-       題目資料
-
-       answer:
-       groom = 新郎
-       bride = 新娘
-       both  = 兩個都是
-    ========================= */
-
     const questions = [
-
-      {
-        question:
-          "平常家裡都是誰在做家事？",
-
-        answer:
-          "bride",
-
-        note:
-          "家事擔當，實至名歸。"
-      },
-
-      {
-        question:
-          "誰出門前準備的時間比較久？",
-
-        answer:
-          "bride",
-
-        note:
-          "精緻是需要時間的。"
-      },
-
-      {
-        question:
-          "誰比較容易迷路？",
-
-        answer:
-          "groom",
-
-        note:
-          "導航有時候也救不了。"
-      },
-
-      {
-        question:
-          "誰比較會亂買東西？",
-
-        answer:
-          "bride",
-
-        note:
-          "這不是亂買，是生活需要。"
-      },
-
-      {
-        question:
-          "吵架之後通常誰先低頭？",
-
-        answer:
-          "groom",
-
-        note:
-          "求生欲，非常優秀。"
-      },
-
-      {
-        question:
-          "誰比較會忘東忘西？",
-
-        answer:
-          "groom",
-
-        note:
-          "記憶體偶爾需要重新整理。"
-      },
-
-      {
-        question:
-          "誰比較愛吃宵夜？",
-
-        answer:
-          "bride",
-
-        note:
-          "晚上十點只是晚餐第二場。"
-      },
-
-      {
-        question:
-          "誰比較常說「都可以」？",
-
-        answer:
-          "groom",
-
-        note:
-          "都可以，但選錯可能不可以。"
-      },
-
-      {
-        question:
-          "誰比較容易睡著？",
-
-        answer:
-          "groom",
-
-        note:
-          "三、二、一，晚安。"
-      },
-
-      {
-        question:
-          "誰比較愛對方？",
-
-        answer:
-          "both",
-
-        note:
-          "這題就不要比了啦 ♥"
-      }
-
+      { question: "平常家裡都是誰在做家事？", answer: "bride", note: "家事擔當，實至名歸。" },
+      { question: "誰出門前準備的時間比較久？", answer: "bride", note: "精緻是需要時間的。" },
+      { question: "誰比較容易迷路？", answer: "groom", note: "導航有時候也救不了。" },
+      { question: "誰比較會亂買東西？", answer: "bride", note: "這不是亂買，是生活需要。" },
+      { question: "吵架之後通常誰先低頭？", answer: "groom", note: "求生欲，非常優秀。" },
+      { question: "誰比較會忘東忘西？", answer: "groom", note: "記憶體偶爾需要重新整理。" },
+      { question: "誰比較愛吃宵夜？", answer: "bride", note: "晚上十點只是晚餐第二場。" },
+      { question: "誰比較常說「都可以」？", answer: "groom", note: "都可以，但選錯可能不可以。" },
+      { question: "誰比較容易睡著？", answer: "groom", note: "三、二、一，晚安。" },
+      { question: "誰比較愛對方？", answer: "both", note: "這題就不要比了啦 ♥" }
     ];
 
-
     let currentQuestion = 0;
-
     let revealed = false;
 
-
-    /* =========================
-       開始遊戲
-    ========================= */
+    const $ = id => document.getElementById(id);
 
     function startGame() {
-
-      document
-        .getElementById("homePage")
-        .classList
-        .add("hidden");
-
-
-      document
-        .getElementById("gamePage")
-        .classList
-        .remove("hidden");
-
-
+      $("homePage").classList.add("hidden");
+      $("gamePage").classList.remove("hidden");
       currentQuestion = 0;
-
-
       renderQuestion();
-
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-
-
-    /* =========================
-       回首頁
-    ========================= */
 
     function goHome() {
-
-      document
-        .getElementById("gamePage")
-        .classList
-        .add("hidden");
-
-
-      document
-        .getElementById("homePage")
-        .classList
-        .remove("hidden");
-
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
+      $("gamePage").classList.add("hidden");
+      $("homePage").classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-
-
-    /* =========================
-       顯示題目
-    ========================= */
 
     function renderQuestion() {
-
-      const data =
-        questions[currentQuestion];
-
-
+      const data = questions[currentQuestion];
+      const index = currentQuestion + 1;
       revealed = false;
 
-
-      /* 題目 */
-
-      document
-        .getElementById(
-          "questionText"
-        )
-        .textContent =
-        data.question;
-
-
-      /* 編號 */
-
-      const num =
-        String(
-          currentQuestion + 1
-        )
-        .padStart(
-          2,
-          "0"
-        );
-
-
-      document
-        .getElementById(
-          "questionCounter"
-        )
-        .textContent =
-        `Q${num}`;
-
-
-      /* 進度 */
-
-      document
-        .getElementById(
-          "progressText"
-        )
-        .textContent =
-        `${currentQuestion + 1} / ${questions.length}`;
-
-
-      const percent =
-        (
-          (currentQuestion + 1)
-          /
-          questions.length
-        )
-        * 100;
-
-
-      document
-        .getElementById(
-          "progressFill"
-        )
-        .style.width =
-        `${percent}%`;
-
-
-      /* 重置答案 */
+      $("questionText").textContent = data.question;
+      $("questionCounter").textContent = `Q${String(index).padStart(2, "0")}`;
+      $("progressText").textContent = `${index} / ${questions.length}`;
+      $("progressFill").style.width = `${(index / questions.length) * 100}%`;
+      $("prevBtn").disabled = currentQuestion === 0;
+      $("nextBtn").textContent = currentQuestion === questions.length - 1 ? "完成 ♥" : "下一題 →";
 
       resetAnswer();
-
-
-      /* 上一題 */
-
-      document
-        .getElementById(
-          "prevBtn"
-        )
-        .disabled =
-        currentQuestion === 0;
-
-
-      /* 下一題 */
-
-      document
-        .getElementById(
-          "nextBtn"
-        )
-        .textContent =
-        currentQuestion ===
-        questions.length - 1
-
-          ? "完成 ♥"
-
-          : "下一題 →";
-
     }
-
-
-    /* =========================
-       重置答案
-    ========================= */
 
     function resetAnswer() {
-
-      const groom =
-        document
-        .getElementById(
-          "groomChoice"
-        );
-
-
-      const bride =
-        document
-        .getElementById(
-          "brideChoice"
-        );
-
-
-      groom
-        .classList
-        .remove(
-          "answer",
-          "wrong"
-        );
-
-
-      bride
-        .classList
-        .remove(
-          "answer",
-          "wrong"
-        );
-
-
-      document
-        .getElementById(
-          "answerMessage"
-        )
-        .classList
-        .add("hidden");
-
-
-      document
-        .getElementById(
-          "revealBtn"
-        )
-        .disabled =
-        false;
-
+      [$("brideChoice"), $("groomChoice")].forEach(el => el.classList.remove("answer", "wrong"));
+      $("answerMessage").classList.add("hidden");
+      $("revealBtn").disabled = false;
     }
-
-
-    /* =========================
-       揭曉答案
-    ========================= */
 
     function revealAnswer() {
-
-      if (revealed) {
-        return;
-      }
-
-
+      if (revealed) return;
       revealed = true;
 
+      const { answer, note } = questions[currentQuestion];
+      const bride = $("brideChoice");
+      const groom = $("groomChoice");
 
-      const data =
-        questions[currentQuestion];
-
-
-      const groom =
-        document
-        .getElementById(
-          "groomChoice"
-        );
-
-
-      const bride =
-        document
-        .getElementById(
-          "brideChoice"
-        );
-
-
-      if (
-        data.answer ===
-        "groom"
-      ) {
-
-        groom
-          .classList
-          .add("answer");
-
-
-        bride
-          .classList
-          .add("wrong");
-
-
-        document
-          .getElementById(
-            "answerResult"
-          )
-          .textContent =
-          "新郎！";
-
+      if (answer === "bride") {
+        bride.classList.add("answer");
+        groom.classList.add("wrong");
+        $("answerResult").textContent = "新娘！";
+      } else if (answer === "groom") {
+        groom.classList.add("answer");
+        bride.classList.add("wrong");
+        $("answerResult").textContent = "新郎！";
+      } else {
+        bride.classList.add("answer");
+        groom.classList.add("answer");
+        $("answerResult").textContent = "兩個都是 ♥";
       }
 
-
-      else if (
-        data.answer ===
-        "bride"
-      ) {
-
-        bride
-          .classList
-          .add("answer");
-
-
-        groom
-          .classList
-          .add("wrong");
-
-
-        document
-          .getElementById(
-            "answerResult"
-          )
-          .textContent =
-          "新娘！";
-
-      }
-
-
-      else if (
-        data.answer ===
-        "both"
-      ) {
-
-        groom
-          .classList
-          .add("answer");
-
-
-        bride
-          .classList
-          .add("answer");
-
-
-        document
-          .getElementById(
-            "answerResult"
-          )
-          .textContent =
-          "兩個都是 ♥";
-
-      }
-
-
-      document
-        .getElementById(
-          "answerNote"
-        )
-        .textContent =
-        data.note || "";
-
-
-      document
-        .getElementById(
-          "answerMessage"
-        )
-        .classList
-        .remove("hidden");
-
-
-      document
-        .getElementById(
-          "revealBtn"
-        )
-        .disabled =
-        true;
-
+      $("answerNote").textContent = note || "";
+      $("answerMessage").classList.remove("hidden");
+      $("revealBtn").disabled = true;
     }
-
-
-    /* =========================
-       下一題
-    ========================= */
 
     function nextQuestion() {
-
-      if (
-        currentQuestion <
-        questions.length - 1
-      ) {
-
+      if (currentQuestion < questions.length - 1) {
         currentQuestion++;
-
-
         renderQuestion();
-
-
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-
-      }
-
-      else {
-
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
         goHome();
-
       }
-
     }
-
-
-    /* =========================
-       上一題
-    ========================= */
 
     function prevQuestion() {
-
-      if (
-        currentQuestion > 0
-      ) {
-
-        currentQuestion--;
-
-
-        renderQuestion();
-
-
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-
-      }
-
+      if (currentQuestion === 0) return;
+      currentQuestion--;
+      renderQuestion();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-
-    /* =========================
-       鍵盤操作
-
-       →
-       下一題
-
-       ←
-       上一題
-
-       Space
-       揭曉答案
-    ========================= */
-
-    document
-      .addEventListener(
-        "keydown",
-        function(event) {
-
-          const gamePage =
-            document
-            .getElementById(
-              "gamePage"
-            );
-
-
-          if (
-            gamePage
-              .classList
-              .contains(
-                "hidden"
-              )
-          ) {
-
-            return;
-
-          }
-
-
-          if (
-            event.key ===
-            "ArrowRight"
-          ) {
-
-            nextQuestion();
-
-          }
-
-
-          if (
-            event.key ===
-            "ArrowLeft"
-          ) {
-
-            prevQuestion();
-
-          }
-
-
-          if (
-            event.code ===
-            "Space"
-          ) {
-
-            event.preventDefault();
-
-            revealAnswer();
-
-          }
-
-        }
-      );
-
+    document.addEventListener("keydown", event => {
+      if ($("gamePage").classList.contains("hidden")) return;
+      if (event.key === "ArrowRight") nextQuestion();
+      if (event.key === "ArrowLeft") prevQuestion();
+      if (event.code === "Space") {
+        event.preventDefault();
+        revealAnswer();
+      }
+    });
   </script>
-
 </body>
 </html>
