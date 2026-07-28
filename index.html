@@ -555,16 +555,16 @@
     .stage {
       position: relative;
       z-index: 2;
-      width: min(980px, 100%);
-      margin: 34px auto 0;
+      width: min(1120px, 100%);
+      margin: 30px auto 0;
       display: grid;
-      grid-template-columns: 1fr 72px 1fr;
+      grid-template-columns: 1fr 86px 1fr;
       align-items: end;
-      gap: 16px;
+      gap: 24px;
     }
 
     .person-side {
-      min-height: 260px;
+      min-height: 330px;
       position: relative;
       display: flex;
       align-items: flex-end;
@@ -575,10 +575,10 @@
     .person-side::before {
       content: "";
       position: absolute;
-      left: 6%;
-      right: 6%;
+      left: 4%;
+      right: 4%;
       bottom: 4px;
-      height: 105px;
+      height: 125px;
       border-radius: 50% 50% 28px 28px;
       opacity: .8;
     }
@@ -589,8 +589,8 @@
     .groom-side::before { background: linear-gradient(180deg, rgba(88,117,93,.15), rgba(88,117,93,.04)); }
 
     .person-photo {
-      width: 225px;
-      height: 270px;
+      width: 290px;
+      height: 340px;
       object-fit: contain;
       object-position: bottom center;
       position: relative;
@@ -606,15 +606,15 @@
     .person-info {
       position: relative;
       z-index: 4;
-      min-width: 125px;
-      padding-bottom: 52px;
+      min-width: 150px;
+      padding-bottom: 66px;
     }
 
     .bride-info { text-align: left; }
     .groom-info { text-align: right; }
 
     .choice-title {
-      font: 900 38px/1.15 "Noto Serif TC", serif;
+      font: 900 46px/1.15 "Noto Serif TC", serif;
       letter-spacing: .05em;
     }
 
@@ -622,9 +622,9 @@
     .groom-side .choice-title { color: #425c49; }
 
     .choice-name {
-      margin-top: 7px;
+      margin-top: 9px;
       color: var(--ink-light);
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 800;
       letter-spacing: .22em;
     }
@@ -638,15 +638,15 @@
     }
 
     .vs {
-      width: 58px;
-      height: 58px;
+      width: 68px;
+      height: 68px;
       display: grid;
       place-items: center;
       border-radius: 50%;
       color: #fff;
       background: var(--ink);
       box-shadow: 0 8px 18px rgba(48,41,35,.16);
-      font: 800 13px/1 "Noto Serif TC", serif;
+      font: 800 14px/1 "Noto Serif TC", serif;
     }
 
     .bride-side.enter { animation: brideIn .65s cubic-bezier(.18,.85,.25,1); }
@@ -842,7 +842,7 @@
       border-radius: 14px;
       color: var(--red);
       background: rgba(255,250,240,.88);
-      font: 900 22px/1.05 "Noto Serif TC", serif;
+      font: 900 17px/1.15 "Noto Serif TC", serif;
       text-align: center;
       transform: rotate(-8deg);
       box-shadow: inset 0 0 0 3px rgba(200,59,70,.10);
@@ -864,8 +864,8 @@
       position: absolute;
       left: 50%;
       bottom: 18px;
-      width: 220px;
-      height: 220px;
+      width: 270px;
+      height: 270px;
       z-index: 1;
       opacity: 0;
       pointer-events: none;
@@ -978,7 +978,7 @@
       .progress-info { display: none; }
       .question-counter { min-width: auto; }
       .question { font-size: clamp(24px, 8vw, 34px); }
-      .stage { grid-template-columns: 1fr 42px 1fr; gap: 4px; margin-top: 24px; }
+      .stage { width: 100%; grid-template-columns: 1fr 42px 1fr; gap: 4px; margin-top: 24px; }
       .person-side { min-height: 205px; }
       .person-side::before { height: 80px; left: 2%; right: 2%; }
       .person-photo { width: 112px; height: 175px; }
@@ -988,7 +988,7 @@
       .choice-title { font-size: 22px; }
       .choice-name { font-size: 8px; letter-spacing: .1em; }
       .vs { width: 40px; height: 40px; font-size: 10px; }
-      .answer-stamp { width: 58px; height: 58px; font-size: 16px; top: 14px; }
+      .answer-stamp { width: 58px; height: 58px; font-size: 13px; line-height: 1.15; top: 14px; }
       .person-side::after { width: 150px; height: 150px; bottom: 14px; }
       .bride-side .answer-stamp { right: 4px; }
       .groom-side .answer-stamp { left: 4px; }
@@ -1060,8 +1060,8 @@
         <div class="brand-line"></div>
       </div>
       <div class="home-kicker">TIM & ARIES · WEDDING GAME</div>
-      <h1 class="home-title">婚禮<span>快問快答</span></h1><div class="home-tagline">誰才最懂誰？</div>
-      <p class="home-subtitle">戀愛這麼久，有些答案早就藏不住了。<br>新郎還是新娘？一起來猜猜看！</p>
+      <h1 class="home-title">婚禮<span>快問快答</span></h1><div class="home-tagline">來都來了，應該很懂我們吧？</div>
+      <p class="home-subtitle">認識我們這麼久，今天就來驗證一下你的熟悉程度。<br>15 題，看看你能撐到第幾關。</p>
       <div class="versus-pill"><span class="bride">ARIES</span><b>♥</b><span class="groom">TIM</span></div>
       <button class="start-btn" onclick="startGame()">開始挑戰 →</button>
     </section>
@@ -1101,7 +1101,7 @@
 
         <div class="stage">
           <div id="brideChoice" class="person-side bride-side">
-            <div class="answer-stamp">正<br>解</div>
+            <div class="answer-stamp">哈哈<br>是我啦</div>
             <img src="./bride.png" alt="新娘" class="person-photo bride-photo">
             <div class="person-info bride-info">
               <div class="choice-title">新娘</div>
@@ -1117,7 +1117,7 @@
               <div class="choice-name">GROOM</div>
             </div>
             <img src="./groom.png" alt="新郎" class="person-photo groom-photo">
-            <div class="answer-stamp">正<br>解</div>
+            <div class="answer-stamp">哈哈<br>是我啦</div>
           </div>
         </div>
 
@@ -1169,7 +1169,7 @@
         key: "boss",
         start: 12,
         end: 14,
-        label: "魔王細節題",
+        label: "魔王題",
         eyebrow: "FINAL STAGE · BOSS",
         subtitle: "接下來是魔王細節題～真正懂我們的人，才有辦法留下來！",
         count: "最後 3 題"
@@ -1179,26 +1179,26 @@
     const questions = [
       /* ---------- 暖身題 1～3 ---------- */
       { question: "誰吃東西比較挑？", answer: "bride", note: "不是難搞，只是對食物有原則。" },
-      { question: "誰出門前準備的時間比較久？", answer: "groom", note: "別催，催了也不會比較快。" },
+      { question: "誰比較沒耐心？", answer: "bride", note: "等待五分鐘，體感大約半小時。" },
       { question: "誰比較容易睡著？", answer: "groom", note: "吃飽睡覺絕對是必須。" },
 
       /* ---------- 一般題 4～9 ---------- */
       { question: "誰比較會製造驚喜？", answer: "bride", note: "另一位負責被驚喜就好。" },
       { question: "誰比較能吃辣？", answer: "groom", note: "你們的大辣，是她的正常辣。" },
-      { question: "誰比較沒耐心？", answer: "bride", note: "等待五分鐘，體感大約半小時。" },
       { question: "誰手機裡偷拍對方的醜照比較多？", answer: "groom", note: "這不是相簿，這是彼此的人質庫。" },
-      { question: "誰喝醉之後比較失控？", answer: "bride", note: "以下內容因婚禮尺度限制，不便公開。" },
-      { question: "吃麵的時候誰是軟麵派？", answer: "groom", note: "王子麵都能煮成麵線。" },
+      { question: "誰喝醉之後比較失控？", answer: "bride", note: "內容因婚禮尺度限制，不便公開。" },
+      { question: "吃麵的時候誰是軟麵派？", answer: "groom", note: "連這個都知道，才算自己人。" },
 
       /* ---------- 陷阱題 10～12 ---------- */
-      { question: "如果現在公開搜尋紀錄，誰比較危險？", answer: "groom", note: "請當事人先把手機交給主持人。" },
+      { question: "從日常到工作，誰才是真正的細節控？", answer: "bride", note: "差一點點也是差，請不要挑戰她的眼睛。" },
       { question: "誰比較常去陽明山？", answer: "bride", note: "選錯的人是不是有什麼小秘密。" },
-      { question: "誰比較可能嘴上說不要，最後自己最喜歡？", answer: "groom", note: "一開始拒絕得很快，後來用得比誰都勤。" },
+      { question: "誰出門前準備的時間比較久？", answer: "groom", note: "別催，催了也不會比較快。" },
+      { question: "洗澡的時候，誰洗得比較久？", answer: "groom", note: "別問洗好了沒，問就是還沒。" },
 
-      /* ---------- 魔王細節題 13～15 ---------- */
+      /* ---------- 魔王題 13～15 ---------- */
       { question: "兩個人之中，誰先追蹤對方的社群帳號？", answer: "groom", note: "這題開始，靠猜的可能不太夠用了。" },
-      { question: "第一次一起旅行，是誰先提出來的？", answer: "bride", note: "真正的老朋友，應該要知道吧？" },
-      { question: "如果人生重新來一次，誰還是會選對方？", answer: "both", note: "如果再選一次，答案還是你 ♥" }
+      { question: "我們第一次交談，是誰先開頭的？", answer: "bride", note: "真正的老朋友，應該要知道吧？" },
+      { question: "誰先把對方帶回家見家人？", answer: "groom", note: "這題都知道，可以坐主桌了。" }
     ];
 
     function getStageByQuestionIndex(index) {
